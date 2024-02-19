@@ -30,6 +30,7 @@
         {
             btnClickThis = new Button();
             pictureBox1 = new PictureBox();
+            OutputTextBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -47,15 +48,24 @@
             // 
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(841, 406);
+            pictureBox1.Size = new Size(449, 406);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            // 
+            // OutputTextBox
+            // 
+            OutputTextBox.Location = new Point(467, 12);
+            OutputTextBox.Multiline = true;
+            OutputTextBox.Name = "OutputTextBox";
+            OutputTextBox.Size = new Size(410, 406);
+            OutputTextBox.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(880, 466);
+            Controls.Add(OutputTextBox);
             Controls.Add(pictureBox1);
             Controls.Add(btnClickThis);
             Name = "Form1";
@@ -63,11 +73,13 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnClickThis;
         private PictureBox pictureBox1;
+        private TextBox OutputTextBox;
     }
 }

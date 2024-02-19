@@ -1,12 +1,5 @@
 using CompactExifLib;
 using System.Text;
-using Microsoft.Win32;
-using System;
-using System.Windows;
-using System.Windows.Forms;
-using System.Drawing.Configuration;
-
-
 
 namespace WinFormsApp
 {
@@ -15,6 +8,7 @@ namespace WinFormsApp
         public Form1()
         {
             InitializeComponent();
+
         }
 
 
@@ -22,11 +16,6 @@ namespace WinFormsApp
         {
 
         }
-
-        //private void button1_Click_1(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -41,8 +30,7 @@ namespace WinFormsApp
             {
                 try
                 {
-                    var image = new Bitmap(ofd.FileName);
-                    //OutputTextBox.Clear();
+                    var image = new Bitmap(ofd.FileName); //Output
                     string ImageFileName = ofd.FileName;
                     ExifData d = new ExifData(ImageFileName);
 
@@ -50,7 +38,7 @@ namespace WinFormsApp
                     sb.Append("File name:  ");
                     sb.Append(ImageFileName);
                     sb.Append("\n");
-                    PrintByteOrder(sb, d);  
+                    PrintByteOrder(sb, d);
                     sb.Append("\n");
 
                     PrintIfdData(sb, ExifIfd.PrimaryData, d);
@@ -58,9 +46,7 @@ namespace WinFormsApp
                     PrintIfdData(sb, ExifIfd.GpsInfoData, d);
                     PrintIfdData(sb, ExifIfd.Interoperability, d);
                     PrintIfdData(sb, ExifIfd.ThumbnailData, d);
-                    // OutputTextBox.Text = sb.ToString();
-                     //pictureBox1.Text = sb.ToString();
-                   
+                    OutputTextBox.Text = sb.ToString();
                    
                 }
                 catch (Exception ex)
@@ -69,7 +55,6 @@ namespace WinFormsApp
                 }
             }
         }
-
 
         private void PrintByteOrder(StringBuilder sb, ExifData d)
         {
@@ -239,5 +224,6 @@ namespace WinFormsApp
                 sb.Append('…');
             }
         }
+
     }
 }
