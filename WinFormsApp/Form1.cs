@@ -46,8 +46,8 @@ namespace WinFormsApp
                     PrintIfdData(sb, ExifIfd.GpsInfoData, d);
                     PrintIfdData(sb, ExifIfd.Interoperability, d);
                     PrintIfdData(sb, ExifIfd.ThumbnailData, d);
-                    OutputTextBox.Text = sb.ToString();
-                   
+                    OutputTextBox.Text = sb.ToString().Replace("\n", "\r\n"); 
+                 
                 }
                 catch (Exception ex)
                 {
